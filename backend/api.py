@@ -2,19 +2,18 @@ from fastapi import FastAPI
 import numpy as np
 import joblib as jb
 import pydantic as pc
+import uvicorn
 
 
 app = FastAPI()
 
 kmeans = jb.load("/model/kmeans.pkl") #jayanth
-scaler = jb.load("/modle/scaler.pkl") #prasad
+scaler = jb.load("/model/scaler.pkl") #prasad
 
 cluster_map = {
-    0: "defender",
+    0: "striker",
     1: "midfielder",
-    2: "striker",
-    3: "winger",
-    4: "goalkeeper"
+    2: "defender",
 }
 
 @app.post('/cluster')
@@ -36,3 +35,7 @@ def predict(data: dict):
         "cluster_id": cluster,
         "role":cluster_map[cluster]
     }
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

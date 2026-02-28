@@ -16,9 +16,6 @@ cluster_map = {
     2: "defender",
 }
 
-'''
-    Data Validation is added for features given by user
-'''
 class Features(BaseModel):
     name : str
     nationality : str

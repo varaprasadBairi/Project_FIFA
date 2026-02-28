@@ -7,8 +7,8 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-kmeans = jb.load("/model/kmeans.pkl") #jayanth
-scaler = jb.load("/model/scaler.pkl") #prasad
+kmeans = jb.load("/model/kmeans.pkl")
+scaler = jb.load("/model/scaler.pkl") 
 
 cluster_map = {
     0: "striker",

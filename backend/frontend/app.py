@@ -3,6 +3,11 @@ import requests
 
 st.title("FIFA20 Player Gallery")
 
+# textual values
+name = st.text_input(placeholder='Enter player name',max_chars=20)
+country = st.text_input(placeholder='Enter country of player',max_chars=20)
+
+# numerical values
 pace = st.slider("Pace", 0,100,60)
 shooting = st.slider("Shooting",0,100,50)
 passing = st.slider("Passing",0,100,50)
@@ -12,6 +17,8 @@ physical = st.slider("Physical",0,100,50)
 
 if st.button("Predict"):
     payload = {
+        "name" : name,
+        "country" : country,
         "pace" : pace,
         "shooting" : shooting,
         "passing" : passing,
